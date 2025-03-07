@@ -1,0 +1,166 @@
+/* Fixed Navbar */
+.navbar {
+  width: 100%;
+  background: #ff4d79;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust container position */
+.container {
+  margin-top: 80px;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffebf0;
+  color: #d6336c;
+  overflow: sc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input Field */
+input {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  border: 2px solid #ff4d6d;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #d6336c;
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 77, 109, 0.5);
+}
+
+/* Heartbeat Button */
+.heartbeat-btn {
+  background-color: #ff4d6d;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  animation: heartbeat 1.5s infinite;
+}
+
+.heartbeat-btn:hover {
+  background-color: #d6336c;
+  transform: scale(1.05);
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Glow Effect on Messages Container */
+.messages-container {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  box-shadow: 0px 0px 15px rgba(255, 77, 109, 0.7);
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1rem /* 16px */;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 80%;
+  width: 100%;
+}
+
+/* Envelope Animation */
+.envelope {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  background: #ff4d6d;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px auto;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Flap of the Envelope */
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #ff778f;
+  border-bottom-left-radius: 150px;
+  border-bottom-right-radius: 150px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Message Inside */
+.envelope .letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+
+/* When the envelope is opened */
+.envelope.opened .flap {
+  transform: translateY(-100%);
+}
+
+.envelope.opened .letter {
+  top: 35%;
+  opacity: 1;
+}
+
+/* Click effect */
+.envelope:active {
+  transform: scale(0.95);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
